@@ -2,12 +2,17 @@
 #include <stdlib.h>
 #include <time.h> 
 
+int isAPlusPetitQueB(int a, int b ){
+	return a>b;
+}	
+
+
 void tri_bulle(int *tab, int size){
 	int echange_effectue;
 	do{
 		echange_effectue = 0;
 		for (int j = 0  ; j < size ; j++){
-			if (*(tab+j)  *(tab+j+1)) {
+			if (!isAPlusPetitQueB(*(tab+j), *(tab+j+1))) {
 				int tmp=*(tab+j); 
 				*(tab+j) = *(tab+j+1);
 				*(tab+j+1) = tmp;
@@ -18,11 +23,6 @@ void tri_bulle(int *tab, int size){
 	}while(echange_effectue == 1);
 
 }
-
-int isAPlutPetitQueB(int a, int b ) {
-	return a<b;
-}
-
 	
 int main(void){
 	srand(time(NULL));

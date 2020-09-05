@@ -29,16 +29,17 @@ int isLipogramme (char tab[], int size){
 	return 1;
 }
 
-void wordReverser (char *tab, int size){
-	char *tmp = malloc(size*sizeof(char));
-	for (int i = 0 ; i < size ;i++){
-		*(tmp+size-i-1) = *(tab+i);
+void wordReverser (char *tab, int tabSize){
+	char *tmp = malloc(tabSize*sizeof(char));
+	for (int i = 0 ; i < tabSize ;i++){
+		*(tmp+tabSize-i-1) = *(tab+i);
 	}
-	for (int i = 0  ; i < size ; i++){
-		if (*(tmp+i) == '\0'){
-		continue;
+	{
+		for (int i = 0  ; i < tabSize ; i++){
+			if (*(tmp+i) != '\0'){
+				*(tab+i) = *(tmp+i);
+			}
 		}
-		*(tab+i) = *(tmp+i);
 	}
 
 }

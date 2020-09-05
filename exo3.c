@@ -7,12 +7,12 @@ int isAPlusPetitQueB(int a, int b ){
 }	
 
 
-void tri_bulle(int *tab, int size){
+void tri_bulle(int *tab, int size,int (*func_tri)(int,int)){
 	int echange_effectue;
 	do{
 		echange_effectue = 0;
 		for (int j = 0  ; j < size ; j++){
-			if (!isAPlusPetitQueB(*(tab+j), *(tab+j+1))) {
+			if (func_tri(*(tab+j), *(tab+j+1))) {
 				int tmp=*(tab+j); 
 				*(tab+j) = *(tab+j+1);
 				*(tab+j+1) = tmp;
@@ -31,7 +31,7 @@ int main(void){
 		tab[i] = (rand()%(100-1+1))+1;
 		printf("tab [%d] => %d \n",i,tab[i]);	
 	}	
-	tri_bulle(tab,sizeof(tab)/sizeof(int));
+	tri_bulle(tab,sizeof(tab)/sizeof(int),isAPlusPetitQueB);
 	printf("---Tableau rang---\n");
 	for (int i = 0 ; i < sizeof(tab)/sizeof(int) ; i++){
 		printf("tab [%d] => %d \n ",i , tab[i]);

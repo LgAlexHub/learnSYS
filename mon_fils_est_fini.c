@@ -5,9 +5,12 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
+
+//1) car système est un fils de ce processus 
 void mon_fils_est_fini(int sig){
 	printf("[%d] = > %d signal \n",getpid(),sig);
 	printf("mon fils est terminé ...\n");
+	signal(SIGINT,default);
 }
 
 

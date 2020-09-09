@@ -4,6 +4,7 @@
 #include <signal.h>
 #include <string.h>
 
+
 //SIGFPE
 
 struct sigaction act;
@@ -23,11 +24,13 @@ static void error_fatal(int sig, siginfo_t *siginfo, void *context){
 
 int main(void){
 	memset(&act, '\0', sizeof(act));
-	memset(&act, '\0', sizeof(act2));
-	act2.sa_sigaction = &error_fatal;
-	act.sa_sigaction = &hdl1;
+	memset(&act2, '\0', sizeof(act2));
+
+	act2.sa_handler = &error_fatal;
+	act.sa_handler = &hdl1;
+
 	sigaction(SIGFPE,&act,NULL);
+
 	int c = 3/0;
-	sleep(5);
-	int d = 4/0;
+	//int d = 4/0;
 }

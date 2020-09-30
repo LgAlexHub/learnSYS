@@ -1,0 +1,13 @@
+##2 Exercice 2 : Les signaux 
+
+1. Dans signal-thread-1.c on balance un signal qui va être attraper par 
+le premier thread qui l'attrape, dans signal-thrad-2.c on fait en sorte 
+que deux threads sur 3 puissent ignorer les signaux grace aux primitives mask_sig(); 
+
+2.Quand un processus lance plusieurs threads l'un des thread doit se charger de récuperer des signaux 
+, cependant ses signaux doivent provenir d'autre thread
+
+3.Bah c'est cool 
+
+##3 Exerice 4 : Synchronisation et données partagées
+
